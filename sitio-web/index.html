@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Volcán - Especialidad en Frutillar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Lato', sans-serif; color: #2c1a0e; background: #fdf6ee; }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(44,26,14,0.95); padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        nav .logo { font-family: 'Playfair Display', serif; color: #d4a853; font-size: 1.5rem; }
+        nav ul { list-style: none; display: flex; gap: 2rem; }
+        nav ul a { color: #fdf6ee; text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
+        nav ul a:hover { color: #d4a853; }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44,26,14,0.6), rgba(44,26,14,0.7)),
+                        url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600') center/cover;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+        }
+        .hero-content { color: #fdf6ee; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 1rem; color: #d4a853; }
+        .hero-content p { font-size: 1.3rem; font-weight: 300; margin-bottom: 2rem; letter-spacing: 2px; }
+        .btn {
+            display: inline-block; padding: 0.9rem 2.5rem;
+            border: 2px solid #d4a853; color: #d4a853;
+            text-decoration: none; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        .btn:hover { background: #d4a853; color: #2c1a0e; }
+
+        /* SECCIONES */
+        section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+        .section-title {
+            font-family: 'Playfair Display', serif; font-size: 2.5rem;
+            text-align: center; margin-bottom: 1rem; color: #2c1a0e;
+        }
+        .section-subtitle { text-align: center; color: #7a5c3a; margin-bottom: 3rem; font-size: 1.1rem; }
+        .divider { width: 60px; height: 3px; background: #d4a853; margin: 0.5rem auto 2rem; }
+
+        /* NOSOTROS */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .about-img {
+            width: 100%; height: 400px; object-fit: cover;
+            border-radius: 4px; box-shadow: 0 8px 30px rgba(44,26,14,0.2);
+        }
+        .about-text h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem; }
+        .about-text p { line-height: 1.8; color: #5a3e2b; margin-bottom: 1rem; }
+
+        /* PRODUCTOS */
+        .productos-bg { background: #2c1a0e; padding: 5rem 2rem; }
+        .productos-inner { max-width: 1100px; margin: 0 auto; }
+        .productos-bg .section-title { color: #d4a853; }
+        .productos-bg .section-subtitle { color: #b89060; }
+        .productos-bg .divider { background: #d4a853; }
+        .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .card {
+            background: #3d2410; border-radius: 4px; padding: 2rem;
+            text-align: center; transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .card h3 { font-family: 'Playfair Display', serif; color: #d4a853; margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .card p { color: #b89060; line-height: 1.6; font-size: 0.95rem; }
+        .card .precio { color: #d4a853; font-size: 1.1rem; font-weight: 700; margin-top: 1rem; }
+
+        /* CONTACTO */
+        .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .contacto-info h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .contacto-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start; }
+        .contacto-item span { font-size: 1.5rem; }
+        .contacto-item div p { color: #5a3e2b; line-height: 1.6; }
+        .contacto-item div strong { color: #2c1a0e; }
+        .mapa {
+            background: linear-gradient(rgba(44,26,14,0.4), rgba(44,26,14,0.4)),
+                        url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800') center/cover;
+            border-radius: 4px; min-height: 300px; display: flex;
+            align-items: center; justify-content: center;
+        }
+        .mapa p { color: #fdf6ee; font-family: 'Playfair Display', serif; font-size: 1.5rem; text-align: center; }
+
+        /* FOOTER */
+        footer {
+            background: #1a0f08; color: #7a5c3a; text-align: center;
+            padding: 2rem; font-size: 0.9rem;
+        }
+        footer span { color: #d4a853; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">☕ Café Volcán</div>
+    <ul>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <div class="hero-content">
+        <h1>Café Volcán</h1>
+        <p>Especialidad del sur de Chile · Frutillar, Los Lagos</p>
+        <a href="#productos" class="btn">Ver nuestra carta</a>
+    </div>
+</div>
+
+<section id="nosotros">
+    <div class="about-grid">
+        <img class="about-img" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800" alt="Interior Café Volcán">
+        <div class="about-text">
+            <h3>Una taza con historia volcánica</h3>
+            <p>Nacimos en Frutillar con una misión simple: acercar el café de especialidad a la gente del sur. Rodeados del lago Llanquihue y los volcanes Osorno y Calbuco, cada taza que preparamos lleva la esencia de esta tierra única.</p>
+            <p>Trabajamos directamente con productores de café de regiones como Huila y Nariño en Colombia, Yirgacheffe en Etiopía y Huehuetenango en Guatemala, seleccionando granos que destacan por su acidez brillante y cuerpo complejo.</p>
+            <p>Nuestro barista viajó a Medellín para formarse en técnicas de extracción de especialidad. Hoy trae ese conocimiento a la orilla del lago.</p>
+        </div>
+    </div>
+</section>
+
+<div class="productos-bg" id="productos">
+    <div class="productos-inner">
+        <h2 class="section-title">Nuestra Carta</h2>
+        <p class="section-subtitle">Granos de origen único, preparados con precisión</p>
+        <div class="divider"></div>
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">☕</div>
+                <h3>Espresso Volcán</h3>
+                <p>Blend exclusivo de granos colombianos y etíopes. Notas de chocolate amargo, frutos rojos y un final largo y ahumado.</p>
+                <div class="precio">$2.800</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🥛</div>
+                <h3>Latte de Lago</h3>
+                <p>Espresso doble con leche de vaca local de Frutillar, texturizada en terciopelo. Suave y cremoso, perfecto para las mañanas frías del sur.</p>
+                <div class="precio">$3.500</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🫖</div>
+                <h3>Pour Over Etíope</h3>
+                <p>Yirgacheffe de proceso natural. Notas florales de jazmín, durazno y té negro. Preparado en V60 con agua a 93°C.</p>
+                <div class="precio">$4.200</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">❄️</div>
+                <h3>Cold Brew Calbuco</h3>
+                <p>Extracción en frío por 18 horas con granos guatemaltecos. Intenso, suave y refrescante. Servido sobre hielo con naranja.</p>
+                <div class="precio">$3.900</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🍰</div>
+                <h3>Pastel de Kuchen</h3>
+                <p>Receta tradicional alemana de Frutillar, horneado cada mañana. De manzana canela o frutos del bosque. Acompaña perfectamente cualquier café.</p>
+                <div class="precio">$2.500</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">📦</div>
+                <h3>Granos para Llevar</h3>
+                <p>Bolsas de 250g de nuestros granos de origen único. Molido al momento según tu método de preparación preferido.</p>
+                <div class="precio">$8.900</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="contacto">
+    <h2 class="section-title">Visítanos</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Estamos a pasos del lago Llanquihue</p>
+    <div class="contacto-grid">
+        <div class="contacto-info">
+            <h3>¿Cómo llegar?</h3>
+            <div class="contacto-item">
+                <span>📍</span>
+                <div>
+                    <strong>Dirección</strong>
+                    <p>Av. Philippi 520, Frutillar Bajo<br>Región de Los Lagos, Chile</p>
+                </div>
+            </div>
+            <div class="contacto-item">
+                <span>🕐</span>
+                <div>
+                    <strong>Horarios</strong>
+                    <p>Lunes a Viernes: 8:00 — 19:00<br>Sábado y Domingo: 9:00 — 20:00</p>
+                </div>
+            </div>
+            <div class="contacto-item">
+                <span>📱</span>
+                <div>
+                    <strong>WhatsApp</strong>
+                    <p>+56 9 8765 4321</p>
+                </div>
+            </div>
+            <div class="contacto-item">
+                <span>📧</span>
+                <div>
+                    <strong>Email</strong>
+                    <p>hola@cafevolcan.cl</p>
+                </div>
+            </div>
+        </div>
+        <div class="mapa">
+            <p>☕<br>Frutillar Bajo<br>Lago Llanquihue</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 <span>Café Volcán</span> · Frutillar, Región de Los Lagos · Hecho con ☕ y ❤️ en el sur de Chile</p>
+</footer>
+
+</body>
+</html>
