@@ -8,7 +8,7 @@
 El sitio web presenta la carta de productos, la historia del negocio y la información de contacto.
 
 ## Acceso al sitio web
-http://44.200.26.35
+http://100.48.213.22/
 
 ## Infraestructura AWS desplegada
 | Recurso | ID |
